@@ -1,0 +1,25 @@
+{
+  "name": "JsSelenium",
+  "version": "1.0.0",
+  "description": "This repo exists to test selenium with javascript.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreLeEEEEE/JsSelenium.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreLeEEEEE/JsSelenium/issues"
+  },
+  "homepage": "https://github.com/AndreLeEEEEE/JsSelenium#readme",
+  "dependencies": {
+    "chromedriver": "^92.0.1",
+    "geckodriver": "^2.0.2",
+    "selenium-webdriver": "^4.0.0-beta.4"
+  }
+}
