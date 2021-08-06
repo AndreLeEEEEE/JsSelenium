@@ -1,8 +1,11 @@
-import { By, Key, Builder } from "selenium-webdriver";
+// The below isn't for ES modules
+// const {By,Key,Builder} = require("selenium-webdriver");
+const {Builder, By, Key, util} = require("selenium-webdriver");
 
-document.getElementById("Start").addEventListener("click", function() {
-    example();
-});
+// The below requires ES modules
+// import {By} from "/node_modules/selenium-webdriver";
+// import "/node_modules/chromedriver";
+// import { SayName } from "./Dummy.js";
 
 async function example() {
     let searchString = "Automation testing with Selenium and JavaScript";
