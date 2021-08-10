@@ -1,28 +1,23 @@
-// The below isn't for ES modules
-// const {By,Key,Builder} = require("selenium-webdriver");
-const {Builder, By, Key, util} = require("selenium-webdriver");
-
-// The below requires ES modules
-// import {By} from "/node_modules/selenium-webdriver";
-// import "/node_modules/chromedriver";
-// import { SayName } from "./Dummy.js";
+const {Builder, By, Key, util, Actions} = require("selenium-webdriver");
 
 async function example() {
-    let searchString = "Automation testing with Selenium and JavaScript";
-
     // Wait for the browser to build and launch properly
     let driver = await new Builder().forBrowser("chrome").build();
 
     // To fetch https://www.google.com/ from the browser
-    await driver.get("https://www.google.com/");
+    await driver.get("https://www.plexonline.com/modules/systemadministration/login/index.aspx");
 
     // To send a search query by passing the value in searchString
-    await driver.findElement(By.name("q")).sendKeys(searchString,Key.RETURN);
+    await driver.findElement(By.name("txtUserID")).sendKeys("w.Andre.Le");
+    await driver.findElement(By.name("txtPassword")).sendKeys("Ry?s_o_3CS");
+    await driver.findElement(By.name("txtCompanyCode")).sendKeys("wanco", Key.RETURN);
 
-    // Verify the page title and print it
-    let title = await driver.getTitle();
-    console.log(`Title is ${title}`);
+    let windows = await driver.getAllWindowHandles();
+    driver.switchTo().window(windows[1]);
+    
+    let act = new Actions(driver.getExecutor());
 
-    // It's always a safe practice to quit the browser after execution
-    await driver.quit();
+    //await driver.quit();
 }
+
+example();
