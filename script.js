@@ -1,4 +1,15 @@
 const {Builder, By, Key, util, Actions} = require("selenium-webdriver");
+const ks = require("node-key-sender");
+
+async function clickMenuItem(driver, itemName) {
+    let nodes = await driver.findElements(By.className("MenuNodeTitle"));
+    nodes.forEach(async node => {
+        let text = await node.getText();
+        if (text === itemName) {
+            await node.click();
+        }
+    });
+}
 
 async function example() {
     // Wait for the browser to build and launch properly
@@ -14,10 +25,16 @@ async function example() {
 
     let windows = await driver.getAllWindowHandles();
     driver.switchTo().window(windows[1]);
-    
-    let act = new Actions(driver.getExecutor());
 
-    //await driver.quit();
+    let nodes = await driver.findElements(By.className("MenuNodeTitle"));
+    nodes.forEach(async node => {
+        let text = await node.getText();
+        if (text === "Office Menu") {
+            await node.click();
+        }
+    });
+
+    // await driver.quit();
 }
 
 example();
