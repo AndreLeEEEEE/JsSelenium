@@ -3,12 +3,16 @@ const ks = require("node-key-sender");
 
 async function clickMenuItem(driver, itemName) {
     let nodes = await driver.findElements(By.className("MenuNodeTitle"));
-    nodes.forEach(async node => {
+    for (let node of nodes) {
         let text = await node.getText();
         if (text === itemName) {
-            await node.click();
+            return node;
         }
-    });
+    }
+}
+
+function failureCallback() {
+    console.log("It failed");
 }
 
 async function example() {
@@ -27,14 +31,9 @@ async function example() {
     driver.switchTo().window(windows[1]);
 
     let nodes = await driver.findElements(By.className("MenuNodeTitle"));
-    nodes.forEach(async node => {
-        let text = await node.getText();
-        if (text === "Office Menu") {
-            await node.click();
-        }
-    });
+    let node = nodes.then()
 
-    // await driver.quit();
+    // driver.quit();
 }
 
 example();
