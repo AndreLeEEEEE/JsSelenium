@@ -7,4 +7,6 @@ keyboard. Since this library uses a jar file, Jave Run Time is required
 (version 8 or higher). Essentially, download the newest version of Java and
 add the Java bin file to PATH in system variables. 
 
-Since this script is ran using Node.js, HTML and CSS files serve no purpose.
+Since this script is ran using Node.js, HTML files, CSS files, live server,
+and "document" aren't used. In addition, using the "node" command is necessary
+to run the script file.
